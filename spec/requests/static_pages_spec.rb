@@ -9,8 +9,13 @@ describe "Static pages" do
 
     it "should have the right title" do
       visit '/static_pages/home'
-      expect(page).to have_title("RoR Tutorial | Home")
+      expect(page).to have_title("RoR Tutorial")
     end
+
+    it "should not have the wrong title" do
+      visit '/static_pages/home'
+      expect(page).not_to have_title('| Home')
+    end 
   end
   
   describe "Help page Pirate yarrrr purple monkey" do
